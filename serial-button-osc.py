@@ -96,7 +96,8 @@ class SerialButton:
                 print(f"serialbutton: {recv}")
             for c in recv: # send once per message
                 if c == self.char:
-                    print(f"serialbutton: pressed")
+                    if self.verbose:
+                        print(f"serialbutton: pressed")
                     if self.on_press: self.on_press(self)
                     break
 
