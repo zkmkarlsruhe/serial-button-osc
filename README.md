@@ -101,6 +101,17 @@ An example clients is included:
 
 Start the recv client and serial-button-osc. Pressing the button should result in a message receive event and a vitual button flash in the pd patch.
 
+Checking Serial Connection
+--------------------------
+
+On macOS and Linux, the serial port can be connected to as a text console via `cu`:
+
+    sudo cu -s 115200 -l /dev/tty.usbserial-310
+
+Wehn connected, cu will print recieved bytes as plain ASCII text.
+
+To exit, type "~." and wait for cu to disconnect.
+
 The Intelligent Museum
 ----------------------
 
