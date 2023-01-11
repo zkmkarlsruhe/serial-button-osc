@@ -15,7 +15,7 @@ BSD Simplified License.
 Description
 -----------
 
-I got a big red button with a USB cable from the Vidoestudio. Inside the box is a microcontroller which communicates over a serial port and sends a '3' character when the button is pressed.
+I got a big red button with a USB cable from the Videostudio. Inside the box is a microcontroller which communicates over a serial port and sends a '3' character when the button is pressed.
 
 This project simply listens for the character and sends an OSC message on a button press.
 
@@ -48,7 +48,7 @@ Next, start listening on a serial port via the virtual environment wrapper scrip
 
     ./serial-button-osc /dev/tty.usbserial-310
 
-The program will simply run in a loop and sends a `/button` OSC message whenever a '3' character is recieved. To modify behavior, use the commandline option flags.
+The program will simply run in a loop and sends a `/button` OSC message whenever a '3' character is received. To modify behavior, use the commandline option flags.
 
 `./serial-button-osc` help output:
 ~~~
@@ -70,7 +70,7 @@ options:
   -v, --verbose         enable verbose printing
 ~~~
 
-For example, to send "/do/something" when a 'b' char is recieved over the "/dev/tty.usbserial-310" serial device:
+For example, to send "/do/something" when a 'b' char is received over the "/dev/tty.usbserial-310" serial device:
 
     ./serial-button-osc.py --verbose -c b /dev/tty.usbserial-310 /do/something
 
@@ -80,7 +80,7 @@ To stop serial-button-osc, use CTRL+C to issue an interrupt signal.
 
 The Python script can be called directly without the wrapper script, but requires manually enabling or disabling the virtual environment:
 
-Aactivate the virtual environment before the first run in a new commandline session:
+Activate the virtual environment before the first run in a new commandline session:
 
     source venv/bin/activate
 
@@ -99,7 +99,7 @@ An example clients is included:
 
 * pd/recvclient.pd: Pure Data patch which receives OSC messages
 
-Start the recv client and serial-button-osc. Pressing the button should result in a message receive event and a vitual button flash in the pd patch.
+Start the recv client and serial-button-osc. Pressing the button should result in a message receive event and a virtual button flash in the pd patch.
 
 Checking Serial Connection
 --------------------------
@@ -108,7 +108,7 @@ On macOS and Linux, the serial port can be connected to as a text console via `c
 
     sudo cu -s 115200 -l /dev/tty.usbserial-310
 
-Wehn connected, cu will print recieved bytes as plain ASCII text.
+When connected, cu will print received bytes as plain ASCII text.
 
 To exit, type "~." and wait for cu to disconnect.
 
