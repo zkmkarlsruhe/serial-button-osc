@@ -101,6 +101,23 @@ An example clients is included:
 
 Start the recv client and serial-button-osc. Pressing the button should result in a message receive event and a virtual button flash in the pd patch.
 
+Making a Button with an Arduino
+-------------------------------
+
+A simple serial button can be made using an analog button or switch with an Arduino microcontroller.
+
+Basic wiring diagram:
+~~~
+3.3V -> button -> 10k Ohm -> GND
+                         \-> D2
+~~~
+
+To create a serial button:
+1. Connect a button to an Arduino using the above diagram
+2. Plug the Arduino into the development computer
+3. Using the Arduino software, compile and upload the `arduino/ButtonChar` sketch to the Arduino
+4. To test, enable the Arduino serial console, select a baud of 115200, and look for a char when the button is pressed
+
 Checking Serial Connection
 --------------------------
 
