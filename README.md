@@ -109,7 +109,7 @@ A simple serial button can be made using an analog button or switch with an Ardu
 Basic wiring diagram:
 ~~~
 3.3V -> button -> 10k Ohm -> GND
-                         \-> D2
+              \-> D2
 ~~~
 
 To create a serial button:
