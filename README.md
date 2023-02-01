@@ -106,7 +106,7 @@ Making a Button with an Arduino
 
 ![style button](media/style-button.jpg)
 
-![style button inside](media/style-button-inside.jpg])
+![style button inside](media/style-button-inside.jpg)
 
 _Example: [Styler](https://github.com/zkmkarlsruhe/Styler) style input trigger button._
 
