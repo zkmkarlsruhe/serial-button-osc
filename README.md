@@ -104,6 +104,12 @@ Start the recv client and serial-button-osc. Pressing the button should result i
 Making a Button with an Arduino
 -------------------------------
 
+![style button](media/style-button.jpg)
+
+![style button inside](media/style-button-inside.jpg])
+
+_Example: [Styler](https://github.com/zkmkarlsruhe/Styler) style input trigger button._
+
 A simple serial button can be made using an analog button or switch with an Arduino microcontroller.
 
 Basic wiring diagram:
