@@ -15,9 +15,9 @@ BSD Simplified License.
 Description
 -----------
 
-I got a big red button with a USB cable from the Videostudio. Inside the box is a microcontroller which communicates over a serial port and sends a '3' character when the button is pressed.
+In ealry 2023, I got a big red button with a USB cable from the ZKM Video Studio. Inside the box is a microcontroller which communicates over a serial port and sends a '3' character when the button is pressed.
 
-This project simply listens for the character and sends an OSC message on a button press.
+This project simply listens for the character and sends an OSC message on a button press. The trigger character and OSC message are configurable. Additionally, the button can act as a switch and send the on.off value on a change aka act as a switch.
 
 Dependencies
 ------------
@@ -52,7 +52,7 @@ The program will simply run in a loop and sends a `/button` OSC message whenever
 
 `./serial-button-osc` help output:
 ~~~
-usage: serial-button-osc.py [-h] [-a ADDR] [-p PORT] [-r RATE] [-c CHAR] [-v] [DEV] [MESSAGE]
+usage: serial-button-osc.py [-h] [-a ADDR] [-p PORT] [-r RATE] [--button-char BUTTON_CHAR] [-s] [--switch-chars SWITCH_CHARS] [-v] [DEV] [MESSAGE]
 
 send an OSC message when a big red button is pressed
 
@@ -66,13 +66,25 @@ options:
                         destination hostname or IP address, default: 127.0.0.1
   -p PORT, --port PORT  destination port to send to, default: 6000
   -r RATE, --rate RATE  serial port baud rate, default: 115200
-  -c CHAR, --char CHAR  serial char for button press, default: '3'
+  --button-char BUTTON_CHAR
+                        serial char for button press, default: '3'
+  -s, --switch          read button as a switch and send off/on int value as message arg
+  --switch-chars SWITCH_CHARS
+                        serial chars for switch values off/on, default: '01'
   -v, --verbose         enable verbose printing
 ~~~
 
 For example, to send "/do/something" when a 'b' char is received over the "/dev/tty.usbserial-310" serial device:
 
-    ./serial-button-osc.py --verbose -c b /dev/tty.usbserial-310 /do/something
+    ./serial-button-osc.py -v --button-char b /dev/tty.usbserial-310 /do/something
+
+Additionally, to have the button act as a switch and send "/record f" when either 'A' or 'B' are received:
+
+    ./serial-button-osc.py -v --switch-chars AB /dev/tty.usbserial-310 /record
+
+The following messages will be sent based on the character read:
+* 'A': `/record 0`
+* 'B': `/record 1`
 
 To stop serial-button-osc, use CTRL+C to issue an interrupt signal.
 
@@ -101,8 +113,8 @@ An example clients is included:
 
 Start the recv client and serial-button-osc. Pressing the button should result in a message receive event and a virtual button flash in the pd patch.
 
-Making a Button with an Arduino
--------------------------------
+Making a Button/Switch with an Arduino
+--------------------------------------
 
 ![style button](media/style-button.jpg)
 
@@ -123,6 +135,8 @@ To create a serial button:
 2. Plug the Arduino into the development computer
 3. Using the Arduino software, compile and upload the `arduino/ButtonChar` sketch to the Arduino
 4. To test, enable the Arduino serial console, select a baud of 115200, and look for a char when the button is pressed
+
+To have the button act as a switch, use the same wiring diagram with the `arduino/SwitchChar` sketch which by default sends a `1` when the button is pressed and a `0` on release.
 
 Checking Serial Connection
 --------------------------

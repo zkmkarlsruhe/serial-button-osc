@@ -1,18 +1,23 @@
-#N canvas 820 130 302 306 12;
-#X obj 72 117 netreceive -u -b;
-#X obj 72 146 oscparse;
-#X obj 113 243 print;
-#X text 167 33 <- start here;
-#X msg 97 76 listen 0;
-#X obj 72 206 list trim;
-#X msg 72 33 listen 6000;
-#X obj 72 242 bng 30 250 50 0 empty empty empty 17 7 0 10 #ff0400 #dfdfdf
-#000000;
-#X listbox 72 177 20 0 0 0 - - - 0;
+#N canvas 557 121 389 328 12;
+#X obj 69 122 netreceive -u -b;
+#X obj 69 151 oscparse;
+#X obj 270 268 print;
+#X text 164 38 <- start here;
+#X msg 94 81 listen 0;
+#X obj 270 222 list trim;
+#X msg 69 38 listen 6000;
+#X obj 69 257 bng 30 250 50 0 empty empty button 32 15 0 12 #ff0400
+#dfdfdf #000000;
+#X listbox 69 182 20 0 0 0 - - - 0;
+#X obj 69 222 list split 1;
+#X obj 154 257 tgl 30 0 empty empty switch 32 15 0 12 #bbbbbb #00ff04
+#000000 0 1;
 #X connect 0 0 1 0;
 #X connect 1 0 8 0;
 #X connect 4 0 0 0;
 #X connect 5 0 2 0;
-#X connect 5 0 7 0;
 #X connect 6 0 0 0;
+#X connect 8 0 9 0;
 #X connect 8 0 5 0;
+#X connect 9 0 7 0;
+#X connect 9 1 10 0;
