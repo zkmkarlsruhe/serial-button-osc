@@ -1,3 +1,15 @@
+0.2.0: 2023 Feb 02
+
+* only print button pressed if verbose
+
+* can now read button as a switch with off/on events
+* added -s/--switch mode and --switch-chars
+* added arudino sketch and info on creating a serial button or switch
+* added note about using cu to read serial port on commandline
+* added icon
+
+* renamed -c/--char to --button-char
+
 0.1.0: 2023 Jan 05
 
 initial version
