@@ -15,7 +15,7 @@ BSD Simplified License.
 Description
 -----------
 
-In ealry 2023, I got a big red button with a USB cable from the ZKM Video Studio. Inside the box is a microcontroller which communicates over a serial port and sends a '3' character when the button is pressed.
+In early 2023, I got a big red button with a USB cable from the ZKM Video Studio. Inside the box is a microcontroller which communicates over a serial port and sends a '3' character when the button is pressed.
 
 This project simply listens for the character and sends an OSC message on a button press. The trigger character and OSC message are configurable. Additionally, the button can act as a switch and send the on.off value on a change aka act as a switch.
 
