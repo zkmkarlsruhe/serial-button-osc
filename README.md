@@ -149,6 +149,17 @@ When connected, cu will print received bytes as plain ASCII text.
 
 To exit, type "~." and wait for cu to disconnect.
 
+Known Issues
+------------
+
+### Ubuntu/Debian Linux: Permission denied
+
+If accessing the serial port results in an error similar to `Permission denied: '/dev/ttyACM0'`, you may need to add your user to the "dialout" group which has the required permissions:
+
+    sudo adduser $USER dialout
+
+Log out or reboot for the changes to take effect.
+
 The Intelligent Museum
 ----------------------
 
