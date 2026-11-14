@@ -7,8 +7,8 @@ Send an OSC message when a big red button is pressed.
 
 This code base has been developed by [ZKM | Hertz-Lab](https://zkm.de/en/about-the-zkm/organization/hertz-lab) as part of the project [»The Intelligent Museum«](#the-intelligent-museum). 
 
-Copyright (c) 2023 ZKM | Karlsruhe.  
-Copyright (c) 2023 Dan Wilcox.  
+Copyright (c) 2023-2026 ZKM | Karlsruhe.  
+Copyright (c) 2023-2026 Dan Wilcox.  
 
 BSD Simplified License.
 
@@ -76,11 +76,11 @@ options:
 
 For example, to send "/do/something" when a 'b' char is received over the "/dev/tty.usbserial-310" serial device:
 
-    ./serial-button-osc.py -v --button-char b /dev/tty.usbserial-310 /do/something
+    ./serial-button-osc -v --button-char b /dev/tty.usbserial-310 /do/something
 
 Additionally, to have the button act as a switch and send "/record f" when either 'A' or 'B' are received:
 
-    ./serial-button-osc.py -v --switch-chars AB /dev/tty.usbserial-310 /record
+    ./serial-button-osc -v --switch-chars AB /dev/tty.usbserial-310 /record
 
 The following messages will be sent based on the character read:
 * 'A': `/record 0`
@@ -98,7 +98,7 @@ Activate the virtual environment before the first run in a new commandline sessi
 
 Use:
 
-    ./baton.py -h
+    ./serial-button-osc.py -h
 
 When finished, deactivate the virtual environment with:
 
