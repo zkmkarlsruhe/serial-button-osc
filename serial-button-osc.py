@@ -61,9 +61,9 @@ class SerialReader:
 
     def __init__(self, dev, rate=115200, verbose=False):
         self.serial = serial.Serial(dev, rate) # serial port
-        self.interval = 0.1
-        self.is_running = True
-        self.verbose = verbose
+        self.interval = 0.1 # loop sleep time
+        self.verbose = verbose # print events?
+        self.is_running = True # loop control
         if self.verbose:
             print(f"serial: created {dev} {rate}")
 
@@ -108,7 +108,7 @@ class SerialReader:
             self.recv(recv)
 
     # process received bytes, implement in child class
-    def recv(serial_bytes):
+    def recv(self, serial_bytes):
         pass
 
 # single char button press
